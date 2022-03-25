@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
   res.send('This B the Main page, ARR');
 });
 
-app.get('/', async (request, response) => {
+app.get('/weather', async (request, response) => {
   let weatherQuery = request.query.weatherQuery;
 
   let url = (`https://api.weatherbit.io/v2.0/forecast/daily?city=${weatherQuery}&key=${process.env.WEATHER_API_KEY}&units=I&days=7`);
@@ -28,11 +28,11 @@ app.get('/', async (request, response) => {
   let dataRecieved = await axios.get(url);
 
   let weatherDisplay = [];
-
   dataRecieved.data.data.forEach(date => {
     let forecast = new Forecast(date);
     weatherDisplay.push(forecast);
   });
+  // console.log(weatherDisplay);
   response.send(weatherDisplay);
 });
 
