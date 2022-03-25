@@ -1,6 +1,6 @@
 # My First Server
 ## lab07 
-![alt text](Screen Shot 2022-03-23 at 8.32.39 AM.png)
+![Alt text](Screen Shot 2022-03-23 at 8.32.39 AM.png)
 
 **Author**: Nathan Waters
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
