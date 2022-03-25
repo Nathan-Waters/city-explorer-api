@@ -2,6 +2,8 @@
 ## lab07 
 ![alt text](lab7WRRC.png)
 
+![alt text](lab6WRRC.png)
+
 **Author**: Nathan Waters
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
