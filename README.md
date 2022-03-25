@@ -1,5 +1,7 @@
 # My First Server
 ## lab07 
+![alt text](lab_08_wrrc.png)
+
 ![alt text](lab7WRRC.png)
 
 ![alt text](lab6WRRC.png)
@@ -23,8 +25,6 @@ This application uses axios to pull data from an API and a server that has APIs 
 
 ## Credit and Collaborations
 this was done alone.
-
-
 
 Name of feature: Setting up first server
 
