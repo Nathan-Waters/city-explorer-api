@@ -35,3 +35,15 @@ Start time:7:44 am
 Finish time: 5:29 pm 2 days later
 
 Actual time needed to complete: 46 hr
+
+
+
+Name of feature: adding the movie front/backend
+
+Estimate of time needed to complete: 1hr
+
+Start time: 3:49 pm
+
+Finish time:
+
+Actual time needed to complete:
