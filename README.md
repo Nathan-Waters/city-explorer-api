@@ -1,5 +1,9 @@
 # My First Server
 ## lab07 
+![alt text](lab-10-wrrc.png)
+
+![alt text](lab09WRRC.png)
+
 ![alt text](lab_08_wrrc.png)
 
 ![alt text](lab7WRRC.png)
@@ -37,13 +41,23 @@ Finish time: 5:29 pm 2 days later
 Actual time needed to complete: 46 hr
 
 
-
 Name of feature: adding the movie front/backend
 
 Estimate of time needed to complete: 1hr
 
 Start time: 3:49 pm
 
-Finish time:
+Finish time: 4:49 pm
 
-Actual time needed to complete:
+Actual time needed to complete: 1hr
+
+
+Name of feature: shorening my code
+
+Estimate of time needed to complete: 1hr
+
+Start time: 4:49 pm
+
+Finish time: 5:49 pm
+
+Actual time needed to complete: 1hr
