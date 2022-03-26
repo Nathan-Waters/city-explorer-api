@@ -1,5 +1,7 @@
 # My First Server
 ## lab07 
+![alt text](lab_08_wrrc.png)
+
 ![alt text](lab7WRRC.png)
 
 ![alt text](lab6WRRC.png)
@@ -24,8 +26,6 @@ This application uses axios to pull data from an API and a server that has APIs 
 ## Credit and Collaborations
 this was done alone.
 
-
-
 Name of feature: Setting up first server
 
 Estimate of time needed to complete: 2hr
@@ -35,3 +35,15 @@ Start time:7:44 am
 Finish time: 5:29 pm 2 days later
 
 Actual time needed to complete: 46 hr
+
+
+
+Name of feature: adding the movie front/backend
+
+Estimate of time needed to complete: 1hr
+
+Start time: 3:49 pm
+
+Finish time:
+
+Actual time needed to complete:

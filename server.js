@@ -21,21 +21,45 @@ app.get('/', (req, res) => {
 });
 
 app.get('/weather', async (request, response) => {
-  let weatherQuery = request.query.weatherQuery;
+  try {
+    let weatherQuery = request.query.weatherQuery;
+    // console.log(weatherQuery);
+    let url = (`https://api.weatherbit.io/v2.0/forecast/daily?city=${weatherQuery}&key=${process.env.WEATHER_API_KEY}&units=I&days=7`);
 
-  let url = (`https://api.weatherbit.io/v2.0/forecast/daily?city=${weatherQuery}&key=${process.env.WEATHER_API_KEY}&units=I&days=7`);
+    let dataRecieved = await axios.get(url);
 
-  let dataRecieved = await axios.get(url);
+    let weatherDisplay = [];
+    dataRecieved.data.data.forEach(date => {
+      let forecast = new Forecast(date);
+      weatherDisplay.push(forecast);
+    });
+    // console.log(weatherDisplay);
+    response.send(weatherDisplay);
+  } catch (error){
+    console.log(error);
+  }
 
-  let weatherDisplay = [];
-  dataRecieved.data.data.forEach(date => {
-    let forecast = new Forecast(date);
-    weatherDisplay.push(forecast);
-  });
-  // console.log(weatherDisplay);
-  response.send(weatherDisplay);
 });
 
+app.get('/movie', async (request, response) => {
+  try {
+    let movieQuery = request.query.movieQuery;
+
+    let url = (`https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&query=${movieQuery}&total_results=3`);
+
+    let dataRecieved = await axios.get(url);
+
+    let movieDisplay = [];
+
+    dataRecieved.data.results.forEach(i => {
+      let movie = new Movies(i);
+      movieDisplay.push(movie);
+    });
+    response.send(movieDisplay);
+  } catch (error){
+    console.log(error);
+  }
+});
 
 app.get('*', (req, res) => {
   res.send('this is not the page you are looking for');
@@ -56,18 +80,15 @@ class Forecast {
   }
 }
 
+class Movies {
+  constructor(element) {
+    this.title = element.title;
+    this.description = element.overview;
+    this.imgURL = element.poster_path;
+  }
+}
+
 //LISTENER////////////////////////////
 //listen is an express method that takes in a port value and a callback function
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));//not app specific
 
-// app.get('/weather', (req, res) => {
-//   try{
-//     let city = req.query.city;
-//     console.log(city);
-//     let cityWeather = data.find(location => location.city_name === city);
-//     console.log(cityWeather);
-//   } catch(error) {
-//     // next (error);
-//     (error);
-//   }
-// });
