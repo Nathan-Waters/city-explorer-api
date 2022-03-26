@@ -4,7 +4,8 @@
 require('dotenv').config();//not app specific
 const express = require('express');//not app specific
 const cors = require('cors');//not app specific
-const axios = require('axios');
+const getWeather = require('./weather.js');
+const getMovie = require('./movie.js');
 
 
 //USE////////////////////////////
@@ -20,46 +21,50 @@ app.get('/', (req, res) => {
   res.send('This B the Main page, ARR');
 });
 
-app.get('/weather', async (request, response) => {
-  try {
-    let weatherQuery = request.query.weatherQuery;
-    // console.log(weatherQuery);
-    let url = (`https://api.weatherbit.io/v2.0/forecast/daily?city=${weatherQuery}&key=${process.env.WEATHER_API_KEY}&units=I&days=7`);
+app.get('/weather', getWeather);
 
-    let dataRecieved = await axios.get(url);
+app.get('/movie', getMovie);
 
-    let weatherDisplay = [];
-    dataRecieved.data.data.forEach(date => {
-      let forecast = new Forecast(date);
-      weatherDisplay.push(forecast);
-    });
-    // console.log(weatherDisplay);
-    response.send(weatherDisplay);
-  } catch (error){
-    console.log(error);
-  }
+// app.get('/weather', async (request, response) => {
+//   try {
+//     let weatherQuery = request.query.weatherQuery;
+//     // console.log(weatherQuery);
+//     let url = (`https://api.weatherbit.io/v2.0/forecast/daily?city=${weatherQuery}&key=${process.env.WEATHER_API_KEY}&units=I&days=7`);
 
-});
+//     let dataRecieved = await axios.get(url);
 
-app.get('/movie', async (request, response) => {
-  try {
-    let movieQuery = request.query.movieQuery;
+//     let weatherDisplay = [];
+//     dataRecieved.data.data.forEach(date => {
+//       let forecast = new Forecast(date);
+//       weatherDisplay.push(forecast);
+//     });
+//     // console.log(weatherDisplay);
+//     response.send(weatherDisplay);
+//   } catch (error){
+//     console.log(error);
+//   }
 
-    let url = (`https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&query=${movieQuery}&total_results=3`);
+// });
 
-    let dataRecieved = await axios.get(url);
+// app.get('/movie', async (request, response) => {
+//   try {
+//     let movieQuery = request.query.movieQuery;
 
-    let movieDisplay = [];
+//     let url = (`https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&query=${movieQuery}&total_results=3`);
 
-    dataRecieved.data.results.forEach(i => {
-      let movie = new Movies(i);
-      movieDisplay.push(movie);
-    });
-    response.send(movieDisplay);
-  } catch (error){
-    console.log(error);
-  }
-});
+//     let dataRecieved = await axios.get(url);
+
+//     let movieDisplay = [];
+
+//     dataRecieved.data.results.forEach(i => {
+//       let movie = new Movies(i);
+//       movieDisplay.push(movie);
+//     });
+//     response.send(movieDisplay);
+//   } catch (error){
+//     console.log(error);
+//   }
+// });
 
 app.get('*', (req, res) => {
   res.send('this is not the page you are looking for');
@@ -73,20 +78,20 @@ app.use((error, req, res) => {
 });
 
 //CLASSES/////////////////////////////
-class Forecast {
-  constructor(element) {
-    this.date = element.datetime;
-    this.description = element.weather.description;
-  }
-}
+// class Forecast {
+//   constructor(element) {
+//     this.date = element.datetime;
+//     this.description = element.weather.description;
+//   }
+// }
 
-class Movies {
-  constructor(element) {
-    this.title = element.title;
-    this.description = element.overview;
-    this.imgURL = element.poster_path;
-  }
-}
+// class Movies {
+//   constructor(element) {
+//     this.title = element.title;
+//     this.description = element.overview;
+//     this.imgURL = element.poster_path;
+//   }
+// }
 
 //LISTENER////////////////////////////
 //listen is an express method that takes in a port value and a callback function
