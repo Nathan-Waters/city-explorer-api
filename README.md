@@ -6,6 +6,8 @@
 
 ![alt text](lab6WRRC.png)
 
+![alt text](lab09WRRC.png)
+
 **Author**: Nathan Waters
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
@@ -44,6 +46,17 @@ Estimate of time needed to complete: 1hr
 
 Start time: 3:49 pm
 
-Finish time:
+Finish time: 5:39 pm
 
-Actual time needed to complete:
+Actual time needed to complete: 2hr
+
+
+Name of feature: moving quereys to their own folders.
+
+Estimate of time needed to complete: 1hr
+
+Start time: 3:49 pm
+
+Finish time: 4:49
+
+Actual time needed to complete: 1hr
